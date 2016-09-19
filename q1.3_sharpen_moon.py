@@ -25,7 +25,7 @@ def laplacianFilter():
 		while (j<imarray.shape[1]-1):
 			total = (mask[0][0]*imarray[i-1][j-1] + mask[0][1]*imarray[i-1][j] + mask[0][2]*imarray[i-1][j+1]) + \
 			(mask[1][0]*imarray[i][j-1] + mask[1][1]*imarray[i][j] + mask[1][2]*imarray[i][j+1]) + \
-			(mask[0][0]*imarray[i+1][j-1] + mask[0][1]*imarray[i+1][j] + mask[0][2]*imarray[i+1][j+1]) 
+			(mask[2][0]*imarray[i+1][j-1] + mask[2][1]*imarray[i+1][j] + mask[2][2]*imarray[i+1][j+1]) 
 
 
 			val = int(total)	
@@ -43,7 +43,7 @@ def laplacianFilter():
 		i += 1
 
 	out = Image.fromarray(numpy.asarray(outarray, dtype=numpy.uint8))
-	out.save(sys.arg[2] + "-q1.3.png")
+	out.save(sys.argv[2] + "-q1.3.png")
 	print "laplacianFilter finished"
 
 laplacianFilter()
